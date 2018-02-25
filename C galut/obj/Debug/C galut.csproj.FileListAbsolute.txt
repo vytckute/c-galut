@@ -1,0 +1,14 @@
+C:\Users\Vita\Desktop\kursai\c\C galut\bin\Debug\C galut.exe.config
+C:\Users\Vita\Desktop\kursai\c\C galut\bin\Debug\Database1.mdf
+C:\Users\Vita\Desktop\kursai\c\C galut\bin\Debug\Database1_log.ldf
+C:\Users\Vita\Desktop\kursai\c\C galut\bin\Debug\C galut.exe
+C:\Users\Vita\Desktop\kursai\c\C galut\bin\Debug\C galut.pdb
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C galut.csprojResolveAssemblyReference.cache
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Form1.resources
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Properties.Resources.resources
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C galut.csproj.GenerateResource.Cache
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C galut.exe
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C galut.pdb
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Paieška.resources
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Vartotojai.resources
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Užsakymai.resources
