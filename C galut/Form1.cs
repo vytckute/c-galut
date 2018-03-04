@@ -27,7 +27,7 @@ namespace C_galut
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Užsakymai myForm = new Užsakymai();
+            Pasirinkimas myForm = new Pasirinkimas();
             this.Hide();
             myForm.ShowDialog();
             this.Show();

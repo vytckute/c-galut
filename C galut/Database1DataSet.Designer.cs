@@ -1134,7 +1134,7 @@ namespace C_galut {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UžsakymaiRow AddUžsakymaiRow(int Vartotojo_id, decimal Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas) {
+            public UžsakymaiRow AddUžsakymaiRow(int Vartotojo_id, double Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas) {
                 UžsakymaiRow rowUžsakymaiRow = ((UžsakymaiRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1174,8 +1174,8 @@ namespace C_galut {
                 this.columnUžsakymo_Id = base.Columns["Užsakymo_Id"];
                 this.columnVartotojo_id = base.Columns["Vartotojo_id"];
                 this.columnKaina = base.Columns["Kaina"];
-                this.columnSiuntimo_adresas = base.Columns["Siuntimo adresas"];
-                this.columnAtsiskaitymo_tipas = base.Columns["Atsiskaitymo tipas"];
+                this.columnSiuntimo_adresas = base.Columns["Siuntimo_adresas"];
+                this.columnAtsiskaitymo_tipas = base.Columns["Atsiskaitymo_tipas"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1185,11 +1185,11 @@ namespace C_galut {
                 base.Columns.Add(this.columnUžsakymo_Id);
                 this.columnVartotojo_id = new global::System.Data.DataColumn("Vartotojo_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVartotojo_id);
-                this.columnKaina = new global::System.Data.DataColumn("Kaina", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnKaina = new global::System.Data.DataColumn("Kaina", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKaina);
-                this.columnSiuntimo_adresas = new global::System.Data.DataColumn("Siuntimo adresas", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSiuntimo_adresas = new global::System.Data.DataColumn("Siuntimo_adresas", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSiuntimo_adresas);
-                this.columnAtsiskaitymo_tipas = new global::System.Data.DataColumn("Atsiskaitymo tipas", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnAtsiskaitymo_tipas = new global::System.Data.DataColumn("Atsiskaitymo_tipas", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAtsiskaitymo_tipas);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUžsakymo_Id}, true));
@@ -1204,7 +1204,7 @@ namespace C_galut {
                 this.columnSiuntimo_adresas.AllowDBNull = false;
                 this.columnSiuntimo_adresas.MaxLength = 2147483647;
                 this.columnAtsiskaitymo_tipas.AllowDBNull = false;
-                this.columnAtsiskaitymo_tipas.MaxLength = 10;
+                this.columnAtsiskaitymo_tipas.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1821,9 +1821,9 @@ namespace C_galut {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Kaina {
+            public double Kaina {
                 get {
-                    return ((decimal)(this[this.tableUžsakymai.KainaColumn]));
+                    return ((double)(this[this.tableUžsakymai.KainaColumn]));
                 }
                 set {
                     this[this.tableUžsakymai.KainaColumn] = value;
@@ -2591,12 +2591,17 @@ SELECT Prekės_Id, Prekės_pavadinimas, Prekės_kaina, Kiekis_sandelyje FROM Pre
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Prekės_Id, Prekės_pavadinimas, Prekės_kaina, Kiekis_sandelyje FROM dbo.Pre" +
                 "kės";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT Prekės_Id, Prekės_pavadinimas, Prekės_kaina, Kiekis_sandelyje FROM dbo.Pre" +
+                "kės";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2621,6 +2626,19 @@ SELECT Prekės_Id, Prekės_pavadinimas, Prekės_kaina, Kiekis_sandelyje FROM Pre
             Database1DataSet.PrekėsDataTable dataTable = new Database1DataSet.PrekėsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(Database1DataSet.PrekėsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2883,41 +2901,41 @@ SELECT Prekės_Id, Prekės_pavadinimas, Prekės_kaina, Kiekis_sandelyje FROM Pre
             tableMapping.ColumnMappings.Add("Užsakymo_Id", "Užsakymo_Id");
             tableMapping.ColumnMappings.Add("Vartotojo_id", "Vartotojo_id");
             tableMapping.ColumnMappings.Add("Kaina", "Kaina");
-            tableMapping.ColumnMappings.Add("Siuntimo adresas", "Siuntimo adresas");
-            tableMapping.ColumnMappings.Add("Atsiskaitymo tipas", "Atsiskaitymo tipas");
+            tableMapping.ColumnMappings.Add("Siuntimo_adresas", "Siuntimo_adresas");
+            tableMapping.ColumnMappings.Add("Atsiskaitymo_tipas", "Atsiskaitymo_tipas");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Užsakymai] WHERE (([Užsakymo_Id] = @Original_Užsakymo_Id) AND " +
                 "([Vartotojo_id] = @Original_Vartotojo_id) AND ([Kaina] = @Original_Kaina) AND ([" +
-                "Atsiskaitymo tipas] = @Original_Atsiskaitymo_tipas))";
+                "Atsiskaitymo_tipas] = @Original_Atsiskaitymo_tipas))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Užsakymo_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Užsakymo_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vartotojo_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vartotojo_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kaina", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Kaina", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Atsiskaitymo_tipas", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo tipas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kaina", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kaina", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Atsiskaitymo_tipas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo_tipas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Užsakymai] ([Vartotojo_id], [Kaina], [Siuntimo adresas], [Atsiskaitymo tipas]) VALUES (@Vartotojo_id, @Kaina, @Siuntimo_adresas, @Atsiskaitymo_tipas);
-SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipas] FROM Užsakymai WHERE (Užsakymo_Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Užsakymai] ([Vartotojo_id], [Kaina], [Siuntimo_adresas], [Atsiskaitymo_tipas]) VALUES (@Vartotojo_id, @Kaina, @Siuntimo_adresas, @Atsiskaitymo_tipas);
+SELECT Užsakymo_Id, Vartotojo_id, Kaina, Siuntimo_adresas, Atsiskaitymo_tipas FROM Užsakymai WHERE (Užsakymo_Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vartotojo_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vartotojo_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kaina", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Kaina", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Siuntimo_adresas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Siuntimo adresas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Atsiskaitymo_tipas", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo tipas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kaina", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kaina", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Siuntimo_adresas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Siuntimo_adresas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Atsiskaitymo_tipas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo_tipas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Užsakymai] SET [Vartotojo_id] = @Vartotojo_id, [Kaina] = @Kaina, [Siuntimo adresas] = @Siuntimo_adresas, [Atsiskaitymo tipas] = @Atsiskaitymo_tipas WHERE (([Užsakymo_Id] = @Original_Užsakymo_Id) AND ([Vartotojo_id] = @Original_Vartotojo_id) AND ([Kaina] = @Original_Kaina) AND ([Atsiskaitymo tipas] = @Original_Atsiskaitymo_tipas));
-SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipas] FROM Užsakymai WHERE (Užsakymo_Id = @Užsakymo_Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Užsakymai] SET [Vartotojo_id] = @Vartotojo_id, [Kaina] = @Kaina, [Siuntimo_adresas] = @Siuntimo_adresas, [Atsiskaitymo_tipas] = @Atsiskaitymo_tipas WHERE (([Užsakymo_Id] = @Original_Užsakymo_Id) AND ([Vartotojo_id] = @Original_Vartotojo_id) AND ([Kaina] = @Original_Kaina) AND ([Atsiskaitymo_tipas] = @Original_Atsiskaitymo_tipas));
+SELECT Užsakymo_Id, Vartotojo_id, Kaina, Siuntimo_adresas, Atsiskaitymo_tipas FROM Užsakymai WHERE (Užsakymo_Id = @Užsakymo_Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vartotojo_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vartotojo_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kaina", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Kaina", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Siuntimo_adresas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Siuntimo adresas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Atsiskaitymo_tipas", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo tipas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kaina", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kaina", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Siuntimo_adresas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Siuntimo_adresas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Atsiskaitymo_tipas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo_tipas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Užsakymo_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Užsakymo_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vartotojo_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vartotojo_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kaina", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Kaina", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Atsiskaitymo_tipas", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo tipas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kaina", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kaina", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Atsiskaitymo_tipas", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Atsiskaitymo_tipas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Užsakymo_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Užsakymo_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2934,14 +2952,13 @@ SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipa
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipas]" +
+            this._commandCollection[0].CommandText = "SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo_adresas], [Atsiskaitymo_tipas]" +
                 " FROM dbo.Užsakymai";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo" +
-                " tipas]\r\nFROM            Užsakymai\r\nWHERE        (Užsakymo_Id LIKE @Užsakymo_Id)" +
-                "";
+            this._commandCollection[1].CommandText = "SELECT Atsiskaitymo_tipas, Kaina, Siuntimo_adresas, Užsakymo_Id, Vartotojo_id FRO" +
+                "M Užsakymai WHERE (Užsakymo_Id LIKE @Užsakymo_Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Užsakymo_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Užsakymo_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -3017,10 +3034,10 @@ SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Užsakymo_Id, int Original_Vartotojo_id, decimal Original_Kaina, string Original_Atsiskaitymo_tipas) {
+        public virtual int Delete(int Original_Užsakymo_Id, int Original_Vartotojo_id, double Original_Kaina, string Original_Atsiskaitymo_tipas) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Užsakymo_Id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Vartotojo_id));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_Kaina));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((double)(Original_Kaina));
             if ((Original_Atsiskaitymo_tipas == null)) {
                 throw new global::System.ArgumentNullException("Original_Atsiskaitymo_tipas");
             }
@@ -3047,9 +3064,9 @@ SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Vartotojo_id, decimal Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas) {
+        public virtual int Insert(int Vartotojo_id, double Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Vartotojo_id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(Kaina));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((double)(Kaina));
             if ((Siuntimo_adresas == null)) {
                 throw new global::System.ArgumentNullException("Siuntimo_adresas");
             }
@@ -3082,9 +3099,9 @@ SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Vartotojo_id, decimal Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas, int Original_Užsakymo_Id, int Original_Vartotojo_id, decimal Original_Kaina, string Original_Atsiskaitymo_tipas, int Užsakymo_Id) {
+        public virtual int Update(int Vartotojo_id, double Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas, int Original_Užsakymo_Id, int Original_Vartotojo_id, double Original_Kaina, string Original_Atsiskaitymo_tipas, int Užsakymo_Id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Vartotojo_id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(Kaina));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((double)(Kaina));
             if ((Siuntimo_adresas == null)) {
                 throw new global::System.ArgumentNullException("Siuntimo_adresas");
             }
@@ -3099,7 +3116,7 @@ SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipa
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Užsakymo_Id));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Vartotojo_id));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_Kaina));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_Kaina));
             if ((Original_Atsiskaitymo_tipas == null)) {
                 throw new global::System.ArgumentNullException("Original_Atsiskaitymo_tipas");
             }
@@ -3127,7 +3144,7 @@ SELECT Užsakymo_Id, Vartotojo_id, Kaina, [Siuntimo adresas], [Atsiskaitymo tipa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Vartotojo_id, decimal Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas, int Original_Užsakymo_Id, int Original_Vartotojo_id, decimal Original_Kaina, string Original_Atsiskaitymo_tipas) {
+        public virtual int Update(int Vartotojo_id, double Kaina, string Siuntimo_adresas, string Atsiskaitymo_tipas, int Original_Užsakymo_Id, int Original_Vartotojo_id, double Original_Kaina, string Original_Atsiskaitymo_tipas) {
             return this.Update(Vartotojo_id, Kaina, Siuntimo_adresas, Atsiskaitymo_tipas, Original_Užsakymo_Id, Original_Vartotojo_id, Original_Kaina, Original_Atsiskaitymo_tipas, Original_Užsakymo_Id);
         }
     }

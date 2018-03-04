@@ -12,3 +12,5 @@ C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C galut.pdb
 C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Paieška.resources
 C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Vartotojai.resources
 C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Užsakymai.resources
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Naujas_Uzsakymas.resources
+C:\Users\Vita\Desktop\kursai\c\C galut\obj\Debug\C_galut.Pasirinkimas.resources

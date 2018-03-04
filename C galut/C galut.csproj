@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,17 +73,34 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LINQ.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LINQ.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Naujas_Uzsakymas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Naujas_Uzsakymas.Designer.cs">
+      <DependentUpon>Naujas_Uzsakymas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paieška.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Paieška.Designer.cs">
       <DependentUpon>Paieška.cs</DependentUpon>
     </Compile>
-    <Compile Include="Užsakymai.cs">
+    <Compile Include="Pasirinkimas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Užsakymai.Designer.cs">
-      <DependentUpon>Užsakymai.cs</DependentUpon>
+    <Compile Include="Pasirinkimas.Designer.cs">
+      <DependentUpon>Pasirinkimas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Užsakymo papildymas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Užsakymo papildymas.Designer.cs">
+      <DependentUpon>Užsakymo papildymas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vartotojai.cs">
       <SubType>Form</SubType>
@@ -95,11 +113,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LINQ.dbml.layout">
+      <DependentUpon>LINQ.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Naujas_Uzsakymas.resx">
+      <DependentUpon>Naujas_Uzsakymas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Paieška.resx">
       <DependentUpon>Paieška.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Užsakymai.resx">
-      <DependentUpon>Užsakymai.cs</DependentUpon>
+    <EmbeddedResource Include="Pasirinkimas.resx">
+      <DependentUpon>Pasirinkimas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Užsakymo papildymas.resx">
+      <DependentUpon>Užsakymo papildymas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vartotojai.resx">
       <DependentUpon>Vartotojai.cs</DependentUpon>
@@ -123,6 +150,11 @@
     </None>
     <None Include="Database1DataSet.xss">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LINQ.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LINQ.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -157,6 +189,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
